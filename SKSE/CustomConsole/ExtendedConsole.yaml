@@ -1,0 +1,82 @@
+name: extended-console
+alias: econ
+script: ExtendedConsole
+help: additional console commands 
+subs:
+  - name: freeze-actor
+    alias: fa
+    func: FreezeActor
+    help: freezes the selected actor
+    args:
+      - name: actor
+        type: actor
+        selected: true
+        required: true
+        help: the actor to freeze
+      - name: type
+        type: int
+        default: 0
+        help: 0 = disables ai, 1 = paralyze with stiff ragdoll 
+      - name: freeze
+        type: bool
+        default: true
+  - name: decapitate-actor
+    alias: da
+    func: DecapitateActor
+    help: decapitate the selected actor
+    args:
+      - name: --target
+        alias: -t
+        type: actor
+        selected: true
+        required: true
+        help: the actor to decapitate
+  - name: get-combat-targets
+    alias: gct
+    func: GetCombatTargets
+    help: lists the selected actor's combat targets
+    args:
+      - name: target
+        type: actor
+        selected: true
+        required: true
+        help: the actor to check     
+  - name: plugin-found
+    alias: pf
+    func: IsPluginFound
+    help: states whether the specified plugin was found
+    args:
+      - name: plugin
+        type: string
+        required: true
+  - name: quest-item
+    alias: qi
+    func: IsQuestItem
+    help: states whether the specified object is a quest item
+    args:
+      - name: item
+        type: ObjectReference
+        required: true
+        selected: true
+  - name: add-keyword
+    alias: ak
+    func: AddKeywordToForm
+    help: adds the specified form to the keyword
+    args:
+      - name: akForm
+        type: Form
+        required: true
+      - name: akKeyword
+        type: Keyword
+        required: true
+  - name: remove-keyword
+    alias: rk
+    func: RemoveKeywordOnForm
+    help: removes the specified form to the keyword
+    args:
+      - name: akForm
+        type: Form
+        required: true
+      - name: akKeyword
+        type: Keyword
+        required: true
